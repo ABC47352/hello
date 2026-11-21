@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>윤서하 포트폴리오 | Yun Seoha Portfolio</title>
+  <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" />
+  <style>
+    /* ===== 기본 설정 ===== */
+    :root {
+      --cream: #f7f1e3;
+      --cream-2: #fffaf0;
+      --green: #2b4a34;
+      --green-dark: #1e3626;
+      --green-light: #e3e9d9;
+      --line: #d8cfb8;
+      --text: #2c2c24;
+      --muted: #5f5f50;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container {
+      width: min(1080px, 92%);
+      margin: 0 auto;
+    }
+
+    section { padding: 72px 0; }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .section-title .ko { color: var(--green); }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 36px;
+    }
+
+    /* ===== 헤더 / 메뉴 ===== */
+    header {
+      background-color: var(--green-dark);
+      color: var(--cream-2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+    }
+
+    .logo span { color: #c9d8b4; }
+
+    .nav-menu {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-menu a {
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-menu a:hover { border-bottom-color: #c9d8b4; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid #c9d8b4;
+      color: var(--cream-2);
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    /* ===== 히어로 ===== */
+    .hero {
+      background-color: var(--green);
+      color: var(--cream-2);
+      padding: 88px 0;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .avatar {
+      flex: 0 0 120px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: var(--cream-2);
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 900;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .hero .tagline {
+      font-size: 17px;
+      color: #dde6cf;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      font-size: 14px;
+    }
+
+    .hero-meta li {
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .hero-meta li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      background-color: #c9d8b4;
+      border-radius: 50%;
+    }
+
+    /* ===== 자기소개 ===== */
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .intro-card {
+      background-color: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .intro-card p { margin-bottom: 14px; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 32px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .info-grid dt {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .info-grid dd {
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    /* ===== 일러스트 장면 (.scene-motion) ===== */
+    .scene-motion {
+      background-color: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      perspective: 700px;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .scene-motion svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .scene-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+
+    .scene-pause-btn {
+      margin-top: 14px;
+      background-color: var(--green);
+      color: var(--cream-2);
+      border: none;
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .scene-pause-btn:hover { background-color: var(--green-dark); }
+
+    .scene-pause-btn:disabled {
+      background-color: var(--line);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+
+    /* ===== 프로젝트 ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background-color: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card .card-head {
+      background-color: var(--green-light);
+      padding: 20px 22px;
+    }
+
+    .project-card .card-head .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-dark);
+      background-color: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h3 {
+      font-size: 18px;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .project-card .card-period {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .project-card .card-body {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card .card-desc {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag-list li {
+      font-size: 12px;
+      background-color: var(--green-light);
+      color: var(--green-dark);
+      border-radius: 6px;
+      padding: 3px 10px;
+    }
+
+    .detail-btn {
+      align-self: flex-start;
+      background-color: var(--green);
+      color: var(--cream-2);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .detail-btn:hover { background-color: var(--green-dark); }
+
+    /* ===== 기술스택 ===== */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .skill-box {
+      background-color: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .skill-box h3 {
+      font-size: 17px;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+    }
+
+    .skill-box ul li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .skill-box ul li:last-child { border-bottom: none; }
+
+    .skill-level { color: var(--muted); }
+
+    /* ===== 활동 기록 ===== */
+    .activity-list {
+      background-color: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .activity-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .activity-item:last-child { border-bottom: none; }
+
+    .activity-period {
+      font-weight: 700;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .activity-item h3 {
+      font-size: 16px;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+
+    .activity-item p { font-size: 14px; color: var(--muted); }
+
+    /* ===== 연락처 ===== */
+    .contact-card {
+      background-color: var(--green-dark);
+      color: var(--cream-2);
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p { color: #dde6cf; margin-bottom: 20px; }
+
+    .contact-mail {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 700;
+      background-color: var(--cream-2);
+      color: var(--green-dark);
+      border-radius: 10px;
+      padding: 12px 24px;
+    }
+
+    /* ===== 푸터 / 고지 ===== */
+    footer {
+      background-color: var(--green);
+      color: #dde6cf;
+      padding: 28px 0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer .notice {
+      max-width: 720px;
+      margin: 0 auto 8px;
+      line-height: 1.8;
+    }
+
+    /* ===== 모달 ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(30, 54, 38, 0.55);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background-color: var(--cream-2);
+      border-radius: 14px;
+      width: min(640px, 100%);
+      max-height: 84vh;
+      overflow-y: auto;
+      padding: 32px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .modal-head h3 {
+      font-size: 22px;
+      color: var(--green-dark);
+    }
+
+    .modal-close {
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+      background-color: var(--green-light);
+      color: var(--green-dark);
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .modal-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+      margin-bottom: 20px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-meta dt { font-size: 13px; color: var(--muted); }
+    .modal-meta dd { font-weight: 700; color: var(--green-dark); font-size: 14px; }
+
+    .modal-section { margin-bottom: 18px; }
+
+    .modal-section h4 {
+      font-size: 15px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .modal-section p { font-size: 14px; }
+
+    /* ===== 반응형 ===== */
+    @media (max-width: 900px) {
+      .project-grid,
+      .skill-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .intro-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 48px 0; }
+
+      .menu-toggle { display: block; }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: var(--green-dark);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+      }
+
+      .nav-menu.open { display: flex; }
+
+      .nav-menu a {
+        display: block;
+        padding: 14px 24px;
+        border-bottom: none;
+      }
+
+      .hero { padding: 56px 0; }
+
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .hero h1 { font-size: 28px; }
+
+      .hero-meta {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .project-grid,
+      .skill-grid { grid-template-columns: 1fr; }
+
+      .info-grid { grid-template-columns: 1fr; }
+
+      .activity-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 20px;
+      }
+
+      .modal { padding: 24px; }
+
+      .modal-meta { grid-template-columns: 1fr; }
+    }
+
+    /* 시스템이 동작 줄이기를 요청한 경우: 장면 애니메이션을 끔 */
+    @media (prefers-reduced-motion: reduce) {
+      .scene-motion { will-change: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 헤더 / 메뉴 ===== -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#intro" class="logo">YUN <span>SEOHA</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기/닫기">☰</button>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#intro">자기소개</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#skills">기술스택</a>
+        <a href="#activities">활동 기록</a>
+        <a href="#contact">연락처</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== 히어로 ===== -->
+  <div class="hero">
+    <div class="container hero-inner">
+      <div class="avatar">서</div>
+      <div>
+        <h1>윤서하 <span style="font-size:20px; font-weight:500;">(Yun Seoha)</span></h1>
+        <p class="tagline">데이터와 경영 정보를 연결하는 경영정보학과 학생</p>
+        <ul class="hero-meta">
+          <li>솔담대학교 경영정보학과</li>
+          <li>인턴십: 여울 데이터랩 (Yeoul Data Lab)</li>
+          <li>공모전: 별숲 데이터 챌린지 (Byeolsup Data Challenge)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 자기소개 ===== -->
+  <section id="intro">
+    <div class="container">
+      <h2 class="section-title"><span class="ko">자기소개</span> · About Me</h2>
+      <p class="section-sub">데이터 분석과 웹 서비스를 함께 공부하는 경영정보학과 학생입니다.</p>
+
+      <div class="intro-layout">
+        <!-- 본문 텍스트 영역 -->
+        <div class="intro-card">
+          <p>
+            안녕하세요, 솔담대학교 경영정보학과에 재학 중인 윤서하입니다. 경영 현장에서 발생하는 문제를
+            데이터로 읽어내고, 이를 서비스와 의사결정으로 연결하는 과정에 관심이 많습니다.
+            대학에서는 SQL과 통계 분석을 기반으로 실제 데이터를 정제하고 시각화하는 프로젝트를 진행해 왔으며,
+            웹 페이지 구축과 데이터베이스 설계 역할도 함께 맡아 왔습니다.
+          </p>
+          <p>
+            여울 데이터랩 인턴십에서 영업 데이터 대시보드를 구축한 경험을 바탕으로, 앞으로는
+            데이터 기반 경영 의사결정을 지원하는 서비스 기획과 분석 업무에 기여하고 싶습니다.
+            꾸준히 배우고 협업하는 자세로 새로운 도메인의 데이터에 빠르게 적응하겠습니다.
+          </p>
+          <dl class="info-grid">
+            <div>
+              <dt>학교 / 학과</dt>
+              <dd>솔담대학교 경영정보학과</dd>
+            </div>
+            <div>
+              <dt>목표 기업</dt>
+              <dd>Moabnt</dd>
+            </div>
+            <div>
+              <dt>이메일</dt>
+              <dd>seoha@example.com</dd>
+            </div>
+            <div>
+              <dt>관심 분야</dt>
+              <dd>데이터 분석 · 경영 정보 시스템 · 웹 서비스</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- 일러스트 장면 (독립적인 .scene-motion 요소, 인라인 SVG) -->
+        <aside class="scene-motion" id="sceneMotion" aria-label="데이터 스튜디오 일러스트">
+          <svg viewBox="0 0 480 340" role="img" aria-labelledby="sceneTitle sceneDesc">
+            <title id="sceneTitle">데이터 스튜디오 인라인 일러스트</title>
+            <desc id="sceneDesc">듀얼 모니터, 둥근 캐릭터, 나무 책상, 식물, 머그잔이 있는 작업 공간</desc>
+
+            <defs>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+                <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1e3626" flood-opacity="0.16" />
+              </filter>
+            </defs>
+
+            <!-- 배경 -->
+            <rect x="16" y="16" width="448" height="308" rx="26" fill="#eef2e4" />
+            <circle cx="70" cy="60" r="10" fill="#dde6cf" />
+            <circle cx="410" cy="74" r="14" fill="#e3e9d9" />
+            <circle cx="396" cy="46" r="6" fill="#dde6cf" />
+
+            <!-- 바닥 그림자 -->
+            <ellipse cx="240" cy="298" rx="150" ry="12" fill="#1e3626" opacity="0.10" />
+
+            <!-- 식물 (왼쪽) -->
+            <g>
+              <ellipse cx="70" cy="214" rx="10" ry="22" fill="#5e8a5a" transform="rotate(-18 70 214)" />
+              <ellipse cx="88" cy="210" rx="10" ry="24" fill="#4a7548" transform="rotate(14 88 210)" />
+              <ellipse cx="79" cy="204" rx="9" ry="20" fill="#6f9a66" />
+              <path d="M52 236 L60 278 L92 278 L100 236 Z" fill="#b9824f" />
+              <rect x="48" y="228" width="56" height="12" rx="4" fill="#a9743f" />
+            </g>
+
+            <!-- 듀얼 모니터 (캐릭터 뒤쪽) -->
+            <g filter="url(#softShadow)">
+              <!-- 왼쪽 모니터: 막대 그래프 -->
+              <rect x="112" y="120" width="116" height="78" rx="10" fill="#1e3626" />
+              <rect x="120" y="128" width="100" height="62" rx="6" fill="#fffaf0" />
+              <rect x="130" y="168" width="12" height="16" fill="#2b4a34" />
+              <rect x="148" y="160" width="12" height="24" fill="#5e8a5a" />
+              <rect x="166" y="154" width="12" height="30" fill="#2b4a34" />
+              <rect x="184" y="164" width="12" height="20" fill="#8a9a6b" />
+              <rect x="158" y="198" width="24" height="10" fill="#1e3626" />
+              <rect x="146" y="208" width="48" height="6" rx="3" fill="#1e3626" />
+
+              <!-- 오른쪽 모니터: 꺾은선 그래프 -->
+              <rect x="252" y="120" width="116" height="78" rx="10" fill="#1e3626" />
+              <rect x="260" y="128" width="100" height="62" rx="6" fill="#fffaf0" />
+              <path d="M270 178 L286 166 L302 172 L318 158 L334 162 L350 150"
+                    stroke="#2b4a34" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="286" cy="166" r="3" fill="#5e8a5a" />
+              <circle cx="318" cy="158" r="3" fill="#5e8a5a" />
+              <circle cx="350" cy="150" r="3" fill="#5e8a5a" />
+              <rect x="298" y="198" width="24" height="10" fill="#1e3626" />
+              <rect x="286" y="208" width="48" height="6" rx="3" fill="#1e3626" />
+            </g>
+
+            <!-- 둥근 캐릭터 -->
+            <g>
+              <rect x="208" y="200" width="64" height="52" rx="22" fill="#2b4a34" />
+              <circle cx="240" cy="168" r="32" fill="#f2c9a0" />
+              <path d="M208 162 Q208 132 240 132 Q272 132 272 162 Q260 148 240 148 Q220 148 208 162 Z" fill="#3a2f28" />
+              <circle cx="229" cy="170" r="3.2" fill="#2c2c24" />
+              <circle cx="251" cy="170" r="3.2" fill="#2c2c24" />
+              <path d="M233 180 Q240 186 247 180" stroke="#2c2c24" stroke-width="2.4" fill="none" stroke-linecap="round" />
+              <ellipse cx="222" cy="177" rx="5" ry="3" fill="#e8a38a" opacity="0.7" />
+              <ellipse cx="258" cy="177" rx="5" ry="3" fill="#e8a38a" opacity="0.7" />
+            </g>
+
+            <!-- 나무 책상 -->
+            <g>
+              <rect x="110" y="257" width="14" height="40" fill="#b9824f" />
+              <rect x="356" y="257" width="14" height="40" fill="#b9824f" />
+              <rect x="90" y="247" width="300" height="20" rx="8" fill="#c99a63" />
+              <rect x="84" y="232" width="312" height="18" rx="9" fill="#d9ac76" />
+            </g>
+
+            <!-- 책상 위 노트 -->
+            <rect x="124" y="214" width="34" height="12" rx="3" fill="#8a9a6b" />
+            <rect x="120" y="218" width="34" height="12" rx="3" fill="#e3e9d9" />
+
+            <!-- 머그잔 (오른쪽) -->
+            <g>
+              <rect x="352" y="206" width="30" height="26" rx="6" fill="#c96f5a" />
+              <path d="M382 212 Q394 212 394 219 Q394 226 382 226" stroke="#c96f5a" stroke-width="4" fill="none" />
+              <path d="M360 196 Q363 190 360 184" stroke="#b9b39a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+              <path d="M372 196 Q375 190 372 184" stroke="#b9b39a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+            </g>
+          </svg>
+
+          <p class="scene-caption">
+            <strong>일러스트 설명:</strong> 듀얼 모니터 앞에서 데이터 대시보드를 분석하는 둥근 캐릭터,
+            나무 책상, 키우는 식물과 따뜻한 머그잔이 놓인 작업 공간입니다.
+            데이터 분석과 경영 정보를 다루는 저의 학생 연구실을 상징합니다.
+          </p>
+
+          <button type="button" class="scene-pause-btn" id="scenePauseBtn" aria-pressed="false">
+            애니메이션 일시정지
+          </button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 프로젝트 ===== -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title"><span class="ko">프로젝트</span> · Projects</h2>
+      <p class="section-sub">진행했던 분석·개발 프로젝트입니다. 각 카드의 "자세히 보기"를 눌러 상세 내용을 확인할 수 있습니다.</p>
+      <div class="project-grid" id="projectGrid"><!-- JS로 카드 렌더링 --></div>
+    </div>
+  </section>
+
+  <!-- ===== 기술스택 ===== -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title"><span class="ko">기술스택</span> · Skills</h2>
+      <p class="section-sub">현재 다룰 수 있는 도구와 언어 수준입니다 (개인 평가 기준).</p>
+      <div class="skill-grid">
+        <div class="skill-box">
+          <h3>데이터 분석</h3>
+          <ul>
+            <li>Python <span class="skill-level">중상</span></li>
+            <li>Pandas / NumPy <span class="skill-level">중</span></li>
+            <li>SQL <span class="skill-level">중</span></li>
+            <li>Excel <span class="skill-level">중상</span></li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>웹 개발 · DB</h3>
+          <ul>
+            <li>HTML / CSS <span class="skill-level">중</span></li>
+            <li>JavaScript <span class="skill-level">초중</span></li>
+            <li>SQLite <span class="skill-level">초중</span></li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>시각화 · 도구 · 언어</h3>
+          <ul>
+            <li>Tableau / Matplotlib <span class="skill-level">중</span></li>
+            <li>Figma <span class="skill-level">초중</span></li>
+            <li>영어 <span class="skill-level">중급</span></li>
+            <li>한국어 <span class="skill-level">모국어</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 활동 기록 ===== -->
+  <section id="activities">
+    <div class="container">
+      <h2 class="section-title"><span class="ko">활동 기록</span> · Activities</h2>
+      <p class="section-sub">인턴십, 공모전, 동아리 및 장학 활동 내역입니다.</p>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-period">2025.07 – 2025.08</div>
+          <div>
+            <h3>여울 데이터랩 (Yeoul Data Lab) 인턴십</h3>
+            <p>영업 데이터 정제 및 시각화 대시보드 구축 업무를 보조했습니다.</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-period">2025.09</div>
+          <div>
+            <h3>별숲 데이터 챌린지 (Byeolsup Data Challenge) 본선 진출</h3>
+            <p>소비자 구매 행동 예측 과제에 참가하여 팀 리더로 데이터 전처리와 모델 평가를 진행했습니다.</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-period">2024.03 – 2025.06</div>
+          <div>
+            <h3>데이터 분석 동아리 '통나무' 활동</h3>
+            <p>정기 스터디와 공개 데이터셋 분석 세션에 참여하며 SQL·Python 분석 역량을 길렀습니다.</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-period">2025.04</div>
+          <div>
+            <h3>전공 우수 장학금 수혜</h3>
+            <p>학업 성적 우수 장학금을 받았습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 연락처 ===== -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title"><span class="ko">연락처</span> · Contact</h2>
+      <p class="section-sub">포트폴리오 관련 문의는 아래 이메일로 연락해 주세요.</p>
+      <div class="contact-card">
+        <h2>함께 이야기 나누고 싶습니다.</h2>
+        <p>분석·서비스 기획 관련 프로젝트 및 채용 문의를 기다립니다.</p>
+        <a class="contact-mail" href="mailto:seoha@example.com">seoha@example.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 프로젝트 상세 모달 ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle"></h3>
+        <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+      </div>
+      <dl class="modal-meta" id="modalMeta"></dl>
+      <div class="modal-section">
+        <h4>프로젝트 설명</h4>
+        <p id="modalDesc"></p>
+      </div>
+      <div class="modal-section">
+        <h4>담당 역할</h4>
+        <p id="modalRole"></p>
+      </div>
+      <div class="modal-section">
+        <h4>주요 성과</h4>
+        <p id="modalResult"></p>
+      </div>
+      <div class="modal-section">
+        <h4>사용 기술</h4>
+        <ul class="tag-list" id="modalTags"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 푸터 ===== -->
+  <footer>
+    <div class="container">
+      <p class="notice">
+        ※ 고지: 본 포트폴리오에 등장하는 학교(솔담대학교), 기업(여울 데이터랩, Moabnt),
+        대회(별숲 데이터 챌린지), 수상 및 활동 경력 등 모든 내용은 실제가 아닌 허구이며,
+        기재된 이메일 주소 역시 예시 주소(seoha@example.com)입니다.
+      </p>
+      <p>© 2026 Yun Seoha Portfolio. All contents are fictional.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== 프로젝트 데이터 (모두 허구) ===== */
+    const projects = [
+      {
+        id: 1,
+        badge: "인턴십 프로젝트",
+        title: "영업 데이터 시각화 대시보드 구축",
+        period: "2025.07 – 2025.08",
+        role: "데이터 분석 인턴",
+        company: "여울 데이터랩 (Yeoul Data Lab)",
+        shortDesc: "매출·고객 데이터를 정제해 주간 경영 리포트용 대시보드를 구성했습니다.",
+        desc: "기업 내부 영업 데이터를 수집·정제하여 지역별 매출, 고객 등급별 전환율 등 주요 지표를 한눈에 볼 수 있는 대시보드를 제작했습니다. 데이터 이상치를 확인하고 분류 기준을 정리하는 과정을 거쳐, 담당자 변경 시에도 지표를 바로 이해할 수 있도록 지표 정의서를 함께 작성했습니다.",
+        result: "주간 보고에 사용되던 표 작성 과리를 자동화하여 리포트 준비 시간을 약 30% 절감했습니다 (허구 성과).",
+        tags: ["Python", "Pandas", "SQL", "Tableau", "Excel"]
+      },
+      {
+        id: 2,
+        badge: "공모전",
+        title: "소비자 구매 행동 예측 모델",
+        period: "2025.09",
+        role: "팀 리더 · 데이터 분석",
+        company: "별숲 데이터 챌린지 (Byeolsup Data Challenge)",
+        shortDesc: "공개 데이터셋을 바탕으로 재구매 가능 고객을 예측하는 분석 과제를 수행했습니다.",
+        desc: "챌린지에서 제공된 공개 구매 데이터를 대상으로 결측치 처리, 범주형 변수 인코딩, 피처 엔지니어링을 진행했습니다. 분류 모델을 여러 개 비교하고 평가 지표(정확도, F1-score)를 기준으로 모델을 선정한 뒤, 예측 결과를 해석하는 리포트를 작성했습니다.",
+        result: "예선을 통과해 본선에 진출했으며, 참가팀 중 상위 12% 수준의 성적을 기록했습니다 (허구 경력).",
+        tags: ["Python", "Scikit-learn", "Pandas", "데이터 전처리", "모델 평가"]
+      },
+      {
+        id: 3,
+        badge: "학과 프로젝트",
+        title: "경영 정보 관리 웹 서비스",
+        period: "2024.09 – 2024.12",
+        role: "프론트엔드 · 데이터베이스 설계",
+        company: "솔담대학교 경영정보학과 수업 프로젝트",
+        shortDesc: "소규모 매장의 재고와 회원 정보를 관리하는 웹 앱을 팀으로 개발했습니다.",
+        desc: "재고 입출고 내역과 회원 정보를 등록·조회할 수 있는 웹 서비스를 기획했습니다. SQLite 데이터베이스 테이블 설계와 화면 레이아웃, 기본적인 CRUD 화면 연결을 담당했으며, 팀원이 작성한 분석 기능을 화면에서 호출할 수 있도록 연동했습니다.",
+        result: "학기 말 발표에서 서비스 완성도와 데이터 설계 부분에서 좋은 평가를 받았습니다 (허구 경력).",
+        tags: ["HTML", "CSS", "JavaScript", "SQLite", "Figma"]
+      }
+    ];
+
+    /* ===== 프로젝트 카드 렌더링 ===== */
+    const grid = document.getElementById("projectGrid");
+
+    projects.forEach((p) => {
+      const card = document.createElement("article");
+      card.className = "project-card";
+      card.innerHTML =
+        '<div class="card-head">' +
+          '<span class="badge">' + p.badge + "</span>" +
+          "<h3>" + p.title + "</h3>" +
+          '<div class="card-period">' + p.period + " · " + p.role + "</div>" +
+        "</div>" +
+        '<div class="card-body">' +
+          '<p class="card-desc">' + p.shortDesc + "</p>" +
+          '<ul class="tag-list">' + p.tags.map((t) => "<li>" + t + "</li>").join("") + "</ul>" +
+          '<button class="detail-btn" data-id="' + p.id + '">자세히 보기</button>' +
+        "</div>";
+      grid.appendChild(card);
+    });
+
+    /* ===== 모달 열기 / 닫기 ===== */
+    const overlay = document.getElementById("modalOverlay");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMeta = document.getElementById("modalMeta");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalRole = document.getElementById("modalRole");
+    const modalResult = document.getElementById("modalResult");
+    const modalTags = document.getElementById("modalTags");
+    const modalClose = document.getElementById("modalClose");
+
+    function openModal(id) {
+      const p = projects.find((item) => item.id === id);
+      if (!p) return;
+
+      modalTitle.textContent = p.title;
+      modalMeta.innerHTML =
+        "<div><dt>기간</dt><dd>" + p.period + "</dd></div>" +
+        "<div><dt>소속 / 주최</dt><dd>" + p.company + "</dd></div>" +
+        "<div><dt>역할</dt><dd>" + p.role + "</dd></div>" +
+        "<div><dt>분류</dt><dd>" + p.badge + "</dd></div>";
+      modalDesc.textContent = p.desc;
+      modalRole.textContent = p.role;
+      modalResult.textContent = p.result;
+      modalTags.innerHTML = p.tags.map((t) => "<li>" + t + "</li>").join("");
+
+      overlay.classList.add("open");
+    }
+
+    function closeModal() {
+      overlay.classList.remove("open");
+    }
+
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".detail-btn");
+      if (btn) openModal(Number(btn.dataset.id));
+    });
+
+    modalClose.addEventListener("click", closeModal);
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    /* ===== 모바일 메뉴 토글 ===== */
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+    });
+
+    /* 메뉴 링크 클릭 시 모바일 메뉴 닫기 */
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+      });
+    });
+
+    /* ===== .scene-motion 일러스트 애니메이션 =====
+       - 7초 주기로 위아래 5px 부드럽게 플로팅
+       - 마우스 위치에 따라 최대 4° 기울기 (터치 기기에서는 비활성)
+       - 스크롤 시 최대 20px 위로 들려 줌
+       - requestAnimationFrame의 시간값 기반으로 렌더링
+       - 일시정지 버튼 / prefers-reduced-motion / 탭 숨김 시 정지
+    */
+    (function setupSceneMotion() {
+      const scene = document.getElementById("sceneMotion");
+      const pauseBtn = document.getElementById("scenePauseBtn");
+      if (!scene || !pauseBtn) return;
+
+      const FLOAT_PERIOD = 7000;   // 7초 주기
+      const FLOAT_AMP = 5;         // 위아래 진폭 5px
+      const MAX_TILT = 4;          // 최대 기울기 4도
+      const MAX_SCROLL_LIFT = 20;  // 스크롤 시 최대 20px 상승
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const canHoverFine = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+      let pausedByUser = false;
+      let prefersReduced = reduceMotion.matches;
+      let isHidden = false;
+      let rafId = null;
+
+      let tiltX = 0;      // 현재 기울기(보간 적용)
+      let tiltY = 0;
+      let targetTiltX = 0;
+      let targetTiltY = 0;
+
+      function getScrollLift() {
+        const y = window.scrollY || window.pageYOffset || 0;
+        return Math.min(Math.max(y, 0), MAX_SCROLL_LIFT);
+      }
+
+      function renderFrame(now) {
+        // 플로팅: 사인 곡선 기반 ±5px
+        const floatY = prefersReduced ? 0 : Math.sin((now / FLOAT_PERIOD) * Math.PI * 2) * FLOAT_AMP;
+
+        // 기울기 보간(lerp)으로 부드럽게 추종
+        tiltX += (targetTiltX - tiltX) * 0.08;
+        tiltY += (targetTiltY - tiltY) * 0.08;
+
+        // 스크롤 상승
+        const lift = prefersReduced ? 0 : getScrollLift();
+
+        scene.style.transform =
+          "translateY(" + (-lift + floatY).toFixed(2) + "px)" +
+          " rotateX(" + tiltX.toFixed(2) + "deg)" +
+          " rotateY(" + tiltY.toFixed(2) + "deg)";
+
+        rafId = requestAnimationFrame(renderFrame);
+      }
+
+      function updatePauseButton() {
+        if (prefersReduced) {
+          pauseBtn.disabled = true;
+          pauseBtn.textContent = "동작 줄이기 설정이 켜져 있어 정지 상태입니다";
+          pauseBtn.setAttribute("aria-pressed", "true");
+        } else {
+          pauseBtn.disabled = false;
+          if (pausedByUser) {
+            pauseBtn.textContent = "애니메이션 재생";
+            pauseBtn.setAttribute("aria-pressed", "true");
+          } else {
+            pauseBtn.textContent = "애니메이션 일시정지";
+            pauseBtn.setAttribute("aria-pressed", "false");
+          }
+        }
+      }
+
+      function updateLoop() {
+        const shouldRun = !pausedByUser && !prefersReduced && !isHidden;
+
+        if (shouldRun && rafId === null) {
+          rafId = requestAnimationFrame(renderFrame);
+        } else if (!shouldRun && rafId !== null) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+          // 정지 시 기준 상태로 복귀(본문·버튼 레이아웃에 영향 없음)
+          scene.style.transform = "";
+          targetTiltX = 0;
+          targetTiltY = 0;
+          tiltX = 0;
+          tiltY = 0;
+        }
+      }
+
+      /* 마우스 추종: 호버 가능한 정밀 포인터(데스크톱)에서만 등록 */
+      if (canHoverFine.matches) {
+        scene.addEventListener("pointermove", (e) => {
+          const rect = scene.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = (e.clientX - cx) / (rect.width / 2);
+          const dy = (e.clientY - cy) / (rect.height / 2);
+
+          targetTiltY = Math.max(-1, Math.min(1, dx)) * MAX_TILT;
+          targetTiltX = Math.max(-1, Math.min(1, dy)) * MAX_TILT * -1;
+        });
+
+        scene.addEventListener("pointerleave", () => {
+          targetTiltX = 0;
+          targetTiltY = 0;
+        });
+      }
+
+      /* 일시정지 / 재생 버튼 */
+      pauseBtn.addEventListener("click", () => {
+        pausedByUser = !pausedByUser;
+        updatePauseButton();
+        updateLoop();
+      });
+
+      /* 시스템 동작 줄이기 설정 변화 감지 */
+      if (typeof reduceMotion.addEventListener === "function") {
+        reduceMotion.addEventListener("change", (e) => {
+          prefersReduced = e.matches;
+          updatePauseButton();
+          updateLoop();
+        });
+      } else if (typeof reduceMotion.addListener === "function") {
+        reduceMotion.addListener((e) => {
+          prefersReduced = e.matches;
+          updatePauseButton();
+          updateLoop();
+        });
+      }
+
+      /* 탭(페이지)이 숨겨지면 애니메이션 정지, 다시 보이면 재개 */
+      document.addEventListener("visibilitychange", () => {
+        isHidden = document.hidden;
+        updateLoop();
+      });
+
+      updatePauseButton();
+      updateLoop();
+    })();
+  </script>
+</body>
+</html>
